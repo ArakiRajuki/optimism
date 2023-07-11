@@ -28,18 +28,14 @@ type Loader interface {
 
 // loader pulls in fault dispute game claim data periodically and over subscriptions.
 type loader struct {
-	log log.Logger
-
-	state Game
-
+	log          log.Logger
 	claimFetcher ClaimFetcher
 }
 
 // NewLoader creates a new [loader].
-func NewLoader(log log.Logger, state Game, claimFetcher ClaimFetcher) *loader {
+func NewLoader(log log.Logger, claimFetcher ClaimFetcher) *loader {
 	return &loader{
 		log:          log,
-		state:        state,
 		claimFetcher: claimFetcher,
 	}
 }
